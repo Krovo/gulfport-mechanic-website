@@ -145,7 +145,6 @@ textarea {
 
 .header-actions,
 .hero-actions,
-.cta-actions,
 .contact-actions {
   display: flex;
   flex-wrap: wrap;
@@ -344,7 +343,7 @@ h3 {
 }
 
 .section-heading p,
-.about-grid p,
+.about-content p,
 .quote-copy p,
 .contact-panel p {
   color: var(--text-muted);
@@ -352,8 +351,7 @@ h3 {
 
 .service-grid,
 .why-grid,
-.reviews-grid,
-.gallery-grid {
+.reviews-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -361,11 +359,9 @@ h3 {
 
 .service-card,
 .why-card,
-blockquote,
-figure,
+.trust-card,
 .quote-form,
 .quote-note,
-.flyer-card,
 .contact-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -413,7 +409,6 @@ figure,
   background: linear-gradient(180deg, rgba(45, 53, 66, 0.18), transparent);
 }
 
-.about-grid,
 .quote-grid,
 .faq-grid {
   display: grid;
@@ -422,28 +417,24 @@ figure,
   align-items: center;
 }
 
-.flyer-card {
-  overflow: hidden;
+.about-content {
+  max-width: 920px;
 }
 
-.flyer-card img {
-  width: 100%;
-  max-height: 560px;
-  object-fit: cover;
-  object-position: center;
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.35rem;
 }
 
-.flyer-card div {
-  padding: 1rem;
-}
-
-.flyer-card strong,
-.flyer-card span {
-  display: block;
-}
-
-.flyer-card span {
-  color: var(--text-muted);
+.about-highlights span {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(17, 23, 34, 0.78);
+  color: var(--text-light);
+  padding: 0.9rem;
+  font-weight: 900;
 }
 
 .why-card {
@@ -460,29 +451,6 @@ figure,
   display: block;
   margin-top: 0.25rem;
   font-size: 1.05rem;
-}
-
-.cta-band {
-  position: relative;
-  overflow: hidden;
-  padding: 4rem 0;
-  background-image:
-    linear-gradient(90deg, rgba(7, 9, 13, 0.88), rgba(7, 9, 13, 0.7)),
-    url("assets/cta-banner.png");
-  background-size: cover;
-  background-position: center;
-  border-block: 1px solid var(--line);
-}
-
-.cta-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: center;
-}
-
-.cta-content h2 {
-  max-width: 760px;
 }
 
 .quote-copy {
@@ -593,42 +561,19 @@ small {
   font-weight: 900;
 }
 
-.gallery-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-figure {
-  margin: 0;
-  overflow: hidden;
-}
-
-figure img {
-  width: 100%;
-  aspect-ratio: 1.35 / 1;
-  object-fit: cover;
-}
-
-figcaption {
-  padding: 0.85rem 1rem;
-  color: var(--text-light);
-  font-weight: 900;
-}
-
-blockquote {
-  margin: 0;
+.trust-card {
   padding: 1.35rem;
 }
 
-blockquote p {
-  margin: 0 0 1rem;
-  color: var(--text-light);
-  font-size: 1.02rem;
+.trust-card strong {
+  display: block;
+  color: var(--warning-yellow);
+  font-size: 1.05rem;
 }
 
-cite {
-  color: var(--warning-yellow);
-  font-style: normal;
-  font-weight: 900;
+.trust-card p {
+  margin: 0.65rem 0 0;
+  color: var(--text-muted);
 }
 
 .faq-list {
@@ -686,20 +631,6 @@ details p {
   color: var(--warning-yellow);
   font-weight: 900;
   text-decoration: none;
-}
-
-.floating-contact {
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 90;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--warning-yellow), #ff9f1c);
-  color: #111;
-  padding: 0.85rem 1rem;
-  font-weight: 900;
-  text-decoration: none;
-  box-shadow: 0 14px 34px rgba(255, 201, 40, 0.22);
 }
 
 .mobile-contact-bar {
@@ -781,34 +712,25 @@ details p {
   }
 
   .hero-actions,
-  .cta-actions,
   .contact-actions {
     width: 100%;
   }
 
   .hero-actions .btn,
-  .cta-actions .btn,
   .contact-actions .btn {
     flex: 1 1 180px;
   }
 
-  .about-grid,
   .quote-grid,
   .faq-grid,
-  .cta-content,
   .contact-panel {
     grid-template-columns: 1fr;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .gallery-grid,
   .reviews-grid {
     grid-template-columns: 1fr;
-  }
-
-  .floating-contact {
-    display: none;
   }
 
   .mobile-contact-bar {
@@ -861,7 +783,8 @@ details p {
   }
 
   .service-grid,
-  .why-grid {
+  .why-grid,
+  .about-highlights {
     grid-template-columns: 1fr;
   }
 
